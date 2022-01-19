@@ -6,7 +6,18 @@ datasources:
     url: jdbc:postgresql://localhost:5432/postgres
     driverClassName: org.postgresql.Driver
     username: postgres
-    password: ''
+    password: 123
     schema-generate: CREATE_DROP
     dialect: POSTGRES
-jpa.default.properties.hibernate.hbm2ddl.auto: update
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - com.kuzmin.domain
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        enable_lazy_load_no_trans: false
+        hbm2ddl:
+          auto: update
